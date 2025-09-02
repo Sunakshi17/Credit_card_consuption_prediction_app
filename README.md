@@ -1,64 +1,66 @@
-💳 Credit Card Consumption Prediction
+# 💳 Credit Card Consumption Prediction
 
-This project focuses on predicting missing credit card consumption values (cc_cons) for banking customers using their demographic and behavioral data. It covers the complete pipeline of data preprocessing, feature engineering, model training, and evaluation.
+This project predicts missing values of customer credit card consumption (`cc_cons`) using demographic and transactional behavior data. It is a complete case study in data preprocessing, feature engineering, model training, and evaluation.
+## ✅ Problem Statement
 
-✅ Problem Definition
-The dataset consists of 20,000 customers:
-15,000 customers → cc_cons (credit card consumption) is available.
-5,000 customers → cc_cons is missing.
+We are given data for 20,000 customers:
+- For 15,000 customers, the credit card consumption (`cc_cons`) is known.
+- For 5,000 customers, this value is missing.
 
-🎯 Objective: Build a machine learning model to predict the missing cc_cons values with high accuracy.
+🎯 **Goal**: Train a model to accurately predict `cc_cons` for the missing 5,000 rows.
 
-📊 Dataset Overview
-CustomerDemographics.xlsx → Age, gender, income, tenure, etc.
-CustomerBehaviorData.xlsx → Transaction history (3 months), card limits, loans, investments.
-CreditConsumptionData.xlsx → Target variable cc_cons for training customers.
+---
 
-🔁 Project Workflow
+## 📊 Dataset Summary
 
-Data Preprocessing
-Combined all three datasets using Customer_ID.
-Handled missing values through imputation.
-Converted categorical variables into numeric format using one-hot encoding.
+- `CustomerDemographics.xlsx`: Age, gender, income level, banking tenure, etc.
+- `CustomerBehaviorData.xlsx`: Credit/debit transaction data (3 months), card limits, loans, investments.
+- `CreditConsumptionData.xlsx`: Known target variable `cc_cons` for 15,000 customers.
 
-Model Building
+---
 
-Data split into training and validation sets.
-Multiple algorithms tested:
+## 🔁 Workflow
 
-✅ Linear Regression (best performing)
-Random Forest Regressor
-Gradient Boosting Regressor
+1. **Data Preprocessing**
+   - Merge 3 files on `Customer_ID`
+   - Impute missing values
+   - One-hot encode categorical variables
 
-Model Evaluation
-Metrics used: MAE, MSE, RMSE, R², RMSPE
-Linear Regression delivered the best balance of error rate and interpretability.
+2. **Modeling**
+   - Split data into training and validation sets
+   - Train multiple models:
+     - Linear Regression ✅ (Best performing)
+     - Random Forest Regressor
+     - Gradient Boosting Regressor
 
-Prediction & Deployment
+3. **Evaluation**
+   - Metrics used: MAE, MSE, RMSE, R², RMSPE
+   - Linear Regression achieved the best RMSPE and R² score
 
-Used the final model to predict cc_cons for 5,000 customers with missing values.
-Saved results into a structured output file.
+4. **Prediction**
+   - Use the best model to predict `cc_cons` for the 5,000 unknowns
+   - Save predictions to a CSV
 
-🧪 Model Performance
-| Model                       | MAE     | RMSE    | R²     | RMSPE  |
-| --------------------------- | ------- | ------- | ------ | ------ |
-| **Linear Regression**       | 1857.26 | 2577.96 | 0.8660 | 0.2703 |
-| Random Forest Regressor     | 1942.74 | 2875.87 | 0.8332 | 0.2908 |
-| Gradient Boosting Regressor | 1874.71 | 2674.19 | 0.8558 | 0.2852 |
+---
 
-📌 Linear Regression was finalized as the best model.
+## 🧪 Model Results Summary
 
-📁 Deliverables
+| Model                     | MAE     | RMSE    | R²     | RMSPE  |
+|--------------------------|---------|---------|--------|--------|
+| **Linear Regression**     | 1857.26 | 2577.96 | 0.8660 | 0.2703 |
+| Random Forest Regressor  | 1942.74 | 2875.87 | 0.8332 | 0.2908 |
+| Gradient Boosting        | 1874.71 | 2674.19 | 0.8558 | 0.2852 |
 
-predicted_credit_consumption_for_missing.csv → Predicted values for 5,000 customers.
-results_report.md → Comparison of models with evaluation metrics.
-Notebooks & Visualizations → Correlation heatmaps, feature importance plots, and exploratory analysis.
+✅ **Linear Regression** was chosen as the final model.
+📁 Outputs
+📄 predicted_credit_consumption_for_missing.csv: Contains predictions for 5,000 customers.
 
-📌 Key Highlights
+📝 results_report.md: Model comparison and metrics.
 
-Complete handling of missing data using statistical imputation.
-One-hot encoding applied for categorical features.
-Feature selection guided by both correlation analysis and business understanding.
-Achieved strong accuracy with Linear Regression (R² = 0.866).
+📊 Notebook visualizations: Correlation heatmaps, feature importance, etc.
+📌 Notes
+All missing values were imputed (mean/mode)
 
-⚡ This project demonstrates end-to-end data science workflow from raw data cleaning to delivering a final predictive model.
+One-hot encoding was used for categorical features
+
+Feature selection based on correlation and business intuition
