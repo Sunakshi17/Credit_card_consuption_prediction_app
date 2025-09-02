@@ -40,10 +40,11 @@ Used the final model to predict cc_cons for 5,000 customers with missing values.
 Saved results into a structured output file.
 
 🧪 Model Performance
-Model	MAE	RMSE	R²	RMSPE
-Linear Regression	1857.26	2577.96	0.8660	0.2703
-Random Forest Regressor	1942.74	2875.87	0.8332	0.2908
-Gradient Boosting Regressor	1874.71	2674.19	0.8558	0.2852
+| Model                       | MAE     | RMSE    | R²     | RMSPE  |
+| --------------------------- | ------- | ------- | ------ | ------ |
+| **Linear Regression**       | 1857.26 | 2577.96 | 0.8660 | 0.2703 |
+| Random Forest Regressor     | 1942.74 | 2875.87 | 0.8332 | 0.2908 |
+| Gradient Boosting Regressor | 1874.71 | 2674.19 | 0.8558 | 0.2852 |
 
 📌 Linear Regression was finalized as the best model.
 
@@ -60,4 +61,4 @@ One-hot encoding applied for categorical features.
 Feature selection guided by both correlation analysis and business understanding.
 Achieved strong accuracy with Linear Regression (R² = 0.866).
 
-⚡ This project demonstrates end-to-end data science workflow — from raw data cleaning to delivering a final predictive model.
+⚡ This project demonstrates end-to-end data science workflow from raw data cleaning to delivering a final predictive model.
